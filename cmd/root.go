@@ -1,12 +1,13 @@
 package cmd
 
 import (
+	"cli-tool/cmd/sub"
 	"github.com/spf13/cobra"
 	"log"
 )
 
 var rootCmd = &cobra.Command{
-	Use: "app",
+	Use: "poc",
 }
 
 func Execute() {
@@ -14,4 +15,9 @@ func Execute() {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func init() {
+	rootCmd.AddCommand(sub.NameCmd)
+	rootCmd.AddCommand(sub.CreateCmd)
 }
